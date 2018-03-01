@@ -1,6 +1,16 @@
+# BlackJack v0.2 
+# Password cracking software
+# Michael C. Dim. - Thessaloniki, Central Macedonia, Greece
+# Password cracking & penetration testing software
+# You may not use this for illegal and/or malicious purposes
+
+#    LIBRARIES    #
+from __future__ import print_function
 import hashlib
-import colorama
+import time
 import argparse
+
+
 #    INTERFACE    #
 def logo():
 	print("""
@@ -11,11 +21,12 @@ ______ _            _      ___            _
 | |_/ / | (_| | (__|   </\__/ / (_| | (__|   <
 \____/|_|\__,_|\___|_|\_\____/ \__,_|\___|_|\_\\
 
+	BlackJack v0.2 By MCD
 """)
 def options():
 	print("""              __
         _..-''--'----_.
-      ,''.-''| .---/ _`-._           Black Jack v0.1
+      ,''.-''| .---/ _`-._           Black Jack v0.2
     ,' \ \  ;| | ,/ / `-._`-.
   ,' ,',\ \( | |// /,-._  / /     Password Cracker
   ;.`. `,\ \`| |/ / |   )/ /           By Michael C Dim.
@@ -37,8 +48,12 @@ def options():
 
 Usage: python blackjack.py --md5 -p [HASH] -d [DICT] -v
 """)
-########################################################
+# PASSWORD CRACKING #
 def md5_crack():
+	print("Hash: MD5")
+	print("Dictionary: %s" % (str(dict)))
+	print("Cracking..")
+	start = time.time()
 	tries = 0
 	try:
 		file = open(dict, "r").read().split('\n')
@@ -50,11 +65,20 @@ def md5_crack():
 		hashed_attempt = hashlib.md5(password).hexdigest()
 		if hashed_attempt == hash:
 			print("\n[%d] - PASSWORD FOUND - %s\n" % (tries,password))
+			end = time.time()
+			time_elapsed = end - start;
+			print("[!] Time elapsed: %d seconds" % (time_elapsed))
+			print("[!] Session complete")
 			exit()
 		else:
 			if verb == True:
 				print("[%d] - FAILED ATTEMPT - %s" % (tries,password))
+	print("[!] Session complete")
 def sha1_crack():
+        print("Hash: SHA1")
+        print("Dictionary: %s" % (str(dict)))
+        print("Cracking...")
+	start = time.time()
 	tries = 0
 	try:
 		file = open(dict, "r").read().split('\n')
@@ -66,12 +90,20 @@ def sha1_crack():
 		hashed_attempt = hashlib.sha1(password).hexdigest()
 		if hashed_attempt == hash:
 			print("\n[%d] - PASSWORD FOUND - %s\n" % (tries,password))
+                        end = time.time()
+                        time_elapsed = end - start;
+			print("[!] Time elapsed: %d seconds" % (time_elapsed))
+			print("[!] Session complete")
 			exit()
 		else:
-			if verb:
+			if verb == True:
 				print("[%d] - FAILED ATTEMPT - %s" % (tries,password))
-
+        print("[!] Session complete")
 def sha256_crack():
+        print("Hash: SHA256")
+        print("Dictionary: %s" % (str(dict)))
+        print("Cracking...")
+	start = time.time()
 	tries = 0
 	try:
 		file = open(dict, "r").read().split('\n')
@@ -83,11 +115,20 @@ def sha256_crack():
 		hashed_attempt = hashlib.sha256(password).hexdigest()
 		if hashed_attempt == hash:
 			print("\n[%d] - PASSWORD FOUND - %s\n" % (tries,password))
+                        end = time.time()
+                        time_elapsed = end - start;
+			print("[!] Time elapsed: %d seconds" % (time_elapsed))
+			print("[!] Session complete")
 			exit()
 		else:
 			if verb == True:
 				print("[%d] - FAILED ATTEMPT - %s" % (tries,password))
+        print("[!] Session complete")
 def sha512_crack():
+        print("Hash: SHA512")
+        print("Dictionary: %s" % (str(dict)))
+        print("Cracking...")
+	start = time.time()
 	tries = 0
 	try:
 		file = open(dict, "r").read().split('\n')
@@ -99,22 +140,30 @@ def sha512_crack():
 		hashed_attempt = hashlib.sha512(password).hexdigest()
 		if hashed_attempt == hash:
 			print("\n[%d] - PASSWORD FOUND - %s\n" % (tries,password))
+                        end = time.time()
+                        time_elapsed = end - start;
+			print("[!] Time elapsed: %d seconds" % (time_elapsed))
+			print("[!] Session complete")
 			exit()
 		else:
 			if verb == True:
 				print("[%d] - FAILED ATTEMPT - %s" % (tries,password))
+	print("[!] Session complete")
 ########################################################
+# INFORMATION #
 def information():
-	print("\nBlack Jack v0.1")
-	print("\nVersion: 0.1")
+	logo()
+	print("\nBlack Jack v0.2")
+	print("Version: 0.2")
 	print("License: GNU GPL v0.3 (2007)")
 	print("Use for legal purposes only. The developer has no responsibility for")
 	print("any damage caused by this program. By using this program users agree that")
 	print("all the responsibility of any misuse of the software is theirs.")
 	print("ASCII art by SSt (2006)")
-	print("By MCD - Thessaloniki, Greece 2017-2017")
-	print("E-mail: anivsante2@gmail.com")
+	print("By MCD - Thessaloniki, Greece 2017-2018")
+
 ########################################################
+# ARGUMENT PARSING #
 parser = argparse.ArgumentParser()
 # Hashes #
 parser.add_argument("--md5", action="store_true")
