@@ -186,22 +186,17 @@ hash = args.pswd
 dict = args.dict
 verb = args.verb
 info = args.info
+logo()
 if info == True:
-	logo()
 	information()
 	exit()
 elif md5_opt == True:
-	logo()
 	md5_crack()
 elif sha1_opt == True:
-	logo()
 	sha1_crack()
 elif sha256_opt == True:
-	logo()
 	sha256_crack()
 elif sha512_opt == True:
-	logo()
 	sha512_crack()
 else:
-	logo()
 	options()
