@@ -1,8 +1,10 @@
-# BlackJack v0.2 
+# BlackJack v0.3
 # Password cracking software
 # Michael C. Dim. - Thessaloniki, Central Macedonia, Greece
 # Password cracking & penetration testing software
 # You may not use this for illegal and/or malicious purposes
+# License:
+# GNU GPL v0.3
 
 #    LIBRARIES    #
 from __future__ import print_function
@@ -10,29 +12,30 @@ import hashlib
 import time
 import argparse
 
+#     VERSION     #
+version = "0.3"
 
 #    INTERFACE    #
 def logo():
-	print("""
-______ _            _      ___            _
+	print("""______ _            _      ___            _
 | ___ \ |          | |    |_  |          | |
 | |_/ / | __ _  ___| | __   | | __ _  ___| | __
 | ___ \ |/ _` |/ __| |/ /   | |/ _` |/ __| |/ /
 | |_/ / | (_| | (__|   </\__/ / (_| | (__|   <
 \____/|_|\__,_|\___|_|\_\____/ \__,_|\___|_|\_\\
 
-	BlackJack v0.2 By MCD
-""")
+	BlackJack v%s By MCD 2017-2018""" % version)
+
 def options():
 	print("""              __
         _..-''--'----_.
-      ,''.-''| .---/ _`-._           Black Jack v0.2
+      ,''.-''| .---/ _`-._           Black Jack v%s
     ,' \ \  ;| | ,/ / `-._`-.
   ,' ,',\ \( | |// /,-._  / /     Password Cracker
   ;.`. `,\ \`| |/ / |   )/ /           By Michael C Dim.
  / /`_`.\_\ \| /_.-.'-''/ /
-/ /_|_:.`. \ |;'`..')  / /          Black Jack 21
-`-._`-._`.`.;`.\  ,'  / /            2017 - 2018
+/ /_|_:.`. \ |;'`..')  / /          BlackJack 21
+`-._`-._`.`.;`.\  ,'  / /   github.com/MichaelDim/BlackJack21
     `-._`.`/    ,'-._/ /
       : `-/     \`-.._/  Hashes included:
       |  :      ;._ (		     --md5
@@ -46,11 +49,18 @@ def options():
                / SSt		     -v --verb  Verbose opt
 				     -i --info  Information
 
-Usage: python blackjack.py --md5 -p [HASH] -d [DICT] -v
-""")
+Usage: python blackjack.py --md5 -p [HASH] -d [DICT] -v""" % version)
+
 # PASSWORD CRACKING #
-def md5_crack():
-	print("Hash: MD5")
+def crack():
+	if md5_opt:
+		print("Hash: MD5")
+	elif sha1_opt:
+		print("Hash: SHA1")
+	elif sha256_opt:
+		print("Hash: SHA256")
+	elif sha512_opt:
+		print("Hash: SHA512")
 	print("Dictionary: %s" % (str(dict)))
 	print("Cracking..")
 	start = time.time()
@@ -62,7 +72,14 @@ def md5_crack():
 		exit()
 	for password in file:
 		tries = tries + 1
-		hashed_attempt = hashlib.md5(password).hexdigest()
+		if md5_opt:
+			hashed_attempt = hashlib.md5(password).hexdigest()
+		elif sha1_opt:
+			hashed_attempt = hashlib.sha1(passowrd).hexdigest()
+		elif sha256_opt:
+			hashed_attempt = hashlib.sha256(password).hexdigest()
+		elif sha512_opt:
+			hashed_attempt = hashlib.sha512(password).hexdigest()
 		if hashed_attempt == hash:
 			print("\n[%d] - PASSWORD FOUND - %s\n" % (tries,password))
 			end = time.time()
@@ -74,87 +91,12 @@ def md5_crack():
 			if verb == True:
 				print("[%d] - FAILED ATTEMPT - %s" % (tries,password))
 	print("[!] Session complete")
-def sha1_crack():
-        print("Hash: SHA1")
-        print("Dictionary: %s" % (str(dict)))
-        print("Cracking...")
-	start = time.time()
-	tries = 0
-	try:
-		file = open(dict, "r").read().split('\n')
-	except:
-		print("File could not be found")
-		exit()
-	for password in file:
-		tries = tries + 1
-		hashed_attempt = hashlib.sha1(password).hexdigest()
-		if hashed_attempt == hash:
-			print("\n[%d] - PASSWORD FOUND - %s\n" % (tries,password))
-                        end = time.time()
-                        time_elapsed = end - start;
-			print("[!] Time elapsed: %d seconds" % (time_elapsed))
-			print("[!] Session complete")
-			exit()
-		else:
-			if verb == True:
-				print("[%d] - FAILED ATTEMPT - %s" % (tries,password))
-        print("[!] Session complete")
-def sha256_crack():
-        print("Hash: SHA256")
-        print("Dictionary: %s" % (str(dict)))
-        print("Cracking...")
-	start = time.time()
-	tries = 0
-	try:
-		file = open(dict, "r").read().split('\n')
-	except:
-		print("File could not be found")
-		exit()
-	for password in file:
-		tries = tries + 1
-		hashed_attempt = hashlib.sha256(password).hexdigest()
-		if hashed_attempt == hash:
-			print("\n[%d] - PASSWORD FOUND - %s\n" % (tries,password))
-                        end = time.time()
-                        time_elapsed = end - start;
-			print("[!] Time elapsed: %d seconds" % (time_elapsed))
-			print("[!] Session complete")
-			exit()
-		else:
-			if verb == True:
-				print("[%d] - FAILED ATTEMPT - %s" % (tries,password))
-        print("[!] Session complete")
-def sha512_crack():
-        print("Hash: SHA512")
-        print("Dictionary: %s" % (str(dict)))
-        print("Cracking...")
-	start = time.time()
-	tries = 0
-	try:
-		file = open(dict, "r").read().split('\n')
-	except:
-		print("File could not be found")
-		exit()
-	for password in file:
-		tries = tries + 1
-		hashed_attempt = hashlib.sha512(password).hexdigest()
-		if hashed_attempt == hash:
-			print("\n[%d] - PASSWORD FOUND - %s\n" % (tries,password))
-                        end = time.time()
-                        time_elapsed = end - start;
-			print("[!] Time elapsed: %d seconds" % (time_elapsed))
-			print("[!] Session complete")
-			exit()
-		else:
-			if verb == True:
-				print("[%d] - FAILED ATTEMPT - %s" % (tries,password))
-	print("[!] Session complete")
-########################################################
+
 # INFORMATION #
 def information():
 	logo()
-	print("\nBlack Jack v0.2")
-	print("Version: 0.2")
+	print("\nBlack Jack %s" % version)
+	print("Version: %s" % version)
 	print("License: GNU GPL v0.3 (2007)")
 	print("Use for legal purposes only. The developer has no responsibility for")
 	print("any damage caused by this program. By using this program users agree that")
@@ -162,7 +104,6 @@ def information():
 	print("ASCII art by SSt (2006)")
 	print("By MCD - Thessaloniki, Greece 2017-2018")
 
-########################################################
 # ARGUMENT PARSING #
 parser = argparse.ArgumentParser()
 # Hashes #
@@ -190,13 +131,7 @@ logo()
 if info == True:
 	information()
 	exit()
-elif md5_opt == True:
-	md5_crack()
-elif sha1_opt == True:
-	sha1_crack()
-elif sha256_opt == True:
-	sha256_crack()
-elif sha512_opt == True:
-	sha512_crack()
+elif md5_opt or sha1_opt or sha256_opt or sha512_opt:
+	crack()
 else:
 	options()
