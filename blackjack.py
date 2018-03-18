@@ -75,7 +75,7 @@ def crack():
 		if md5_opt:
 			hashed_attempt = hashlib.md5(password).hexdigest()
 		elif sha1_opt:
-			hashed_attempt = hashlib.sha1(passowrd).hexdigest()
+			hashed_attempt = hashlib.sha1(password).hexdigest()
 		elif sha256_opt:
 			hashed_attempt = hashlib.sha256(password).hexdigest()
 		elif sha512_opt:
