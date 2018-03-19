@@ -35,7 +35,7 @@ def options():
   ;.`. `,\ \`| |/ / |   )/ /           By Michael C Dim.
  / /`_`.\_\ \| /_.-.'-''/ /
 / /_|_:.`. \ |;'`..')  / /          BlackJack 21
-`-._`-._`.`.;`.\  ,'  / /   github.com/MichaelDim/BlackJack21
+`-._`-._`.`.;`.\  ,'  / /   github.com/MichaelDim02/BlackJack21
     `-._`.`/    ,'-._/ /
       : `-/     \`-.._/  Hashes included:
       |  :      ;._ (		     --md5
