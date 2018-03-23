@@ -436,7 +436,7 @@ elif md5_opt or sha1_opt or sha256_opt or sha512_opt:
 		else:
 			print("[+] List not found")
 			exit()
-		if dig == 0:
+		if dig == "0":
 			digit1()
 			digit2()
 			digit3()
