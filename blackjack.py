@@ -439,7 +439,14 @@ if info == True:
 elif md5_opt or sha1_opt or sha256_opt or sha512_opt:
 	if brf:
 		print("Method: Bruteforce")
-		print("Hash: ", hash)
+		if md5_opt:
+			print("Hash: MD5")
+		elif sha1_opt:
+			print("Hash: SHA1")
+		elif sha256_opt:
+			print("Hash: SHA256")
+		elif sha512_opt:
+			print("Hash: SHA512")
 		print("Digits: ", dig)
 		if lst == "1":
 			lst_name = "1 - Numbers"
