@@ -107,7 +107,7 @@ def crack():
 def digit1():
 	tries = 0
 	start = time.time
-        for item in list:
+        for item in plist:
 		tries = tries + 1
                 password = item
                 password = "".join(password)
