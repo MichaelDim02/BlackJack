@@ -73,6 +73,7 @@ def crack():
 		print("Hash: SHA256")
 	elif sha512_opt:
 		print("Hash: SHA512")
+	print("Method: Dictionary attack")
 	print("Dictionary: %s" % (str(dict)))
 	print("Cracking..")
 	start = time.time()
@@ -437,6 +438,25 @@ if info == True:
 	exit()
 elif md5_opt or sha1_opt or sha256_opt or sha512_opt:
 	if brf:
+		print("Method: Bruteforce")
+		print("Hash: ", hash)
+		print("Digits: ", dig)
+		if lst == "1":
+			lst_name = "1 - Numbers"
+		elif lst == "2":
+			lst_name = "2 - Lower case letters"
+		elif lst == "3":
+			lst_name = "3 - Lower case letters, numbers"
+		elif lst == "4":
+			lst_name = "4 - Upper case letters"
+		elif lst == "5":
+			lst_name = "5 - Upper case letters, lower case letters"
+		elif lst == "6":
+			lst_name = "6 - Upper case letters, numbers"
+		elif lst == "7":
+			lst_name = "7 - Upper case letters, lower case letters, numbers"
+		print("List: ", lst_name)
+		print("Cracking...")
 		if lst == "1":
 			plist = ['0','1','2','3','4','5','6','7','8','9']
 		elif lst == "2":
