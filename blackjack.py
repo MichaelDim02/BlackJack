@@ -126,6 +126,8 @@ def digit1():
 			print("[!] Time elapsed: %d seconds" % (time_elapsed))
 			print("[!] Session complete")
 			exit()
+	print("[!] Session complete")
+	exit()
 def digit2():
 	tries = 0
 	start = time.time()
@@ -149,6 +151,8 @@ def digit2():
 				print("[!] Time elapsed: %d seconds" % (time_elapsed))
 				print("[!] Session complete")
 				exit()
+	print("[!] Session complete")
+	exit()
 def digit3():
 	tries = 0
 	start = time.time()
@@ -173,6 +177,8 @@ def digit3():
 					print("[!] Time elapsed: %d seconds" % (time_elapsed))
 					print("[!] Session complete")
 					exit()
+	print("[!] Session complete")
+	exit()
 def digit4():
 	tries = 0
 	start = time.time()
@@ -198,6 +204,8 @@ def digit4():
 						print("[!] Time elapsed: %d seconds" % (time_elapsed))
 						print("[!] Session complete")
 						exit()
+	print("[!] Session complete")
+	exit()
 def digit5():
 	tries = 0
 	start = time.time()
@@ -224,6 +232,8 @@ def digit5():
 							print("[!] Time elapsed: %d seconds" % (time_elapsed))
 							print("[!] Session complete")
 							exit()
+	print("[!] Session complete")
+	exit()
 def digit6():
 	tries = 0
 	start = time.time()
@@ -251,6 +261,8 @@ def digit6():
 								print("[!] Time elapsed: %d seconds" % (time_elapsed))
 								print("[!] Session complete")
 								exit()
+	print("[!] Session complete")
+	exit()
 def digit7():
 	tries = 0
 	start = time.time()
@@ -279,6 +291,8 @@ def digit7():
 									print("[!] Time elapsed: %d seconds" % (time_elapsed))
 									print("[!] Session complete")
 									exit()
+	print("[!] Session complete")
+	exit()
 def digit8():
 	tries = 0
 	start = time.time()
@@ -308,6 +322,8 @@ def digit8():
 										print("[!] Time elapsed: %d seconds" % (time_elapsed))
 										print("[!] Session complete")
 										exit()
+	print("[!] Session complete")
+	exit()
 def digit9():
 	tries = 0
 	start = time.time()
@@ -338,6 +354,8 @@ def digit9():
 											print("[!] Time elapsed: %d seconds" % (time_elapsed))
 											print("[!] Session complete")
 											exit()
+	print("[!] Session complete")
+	exit()
 def digit10():
 	tries = 0
 	start = time.time()
@@ -369,7 +387,7 @@ def digit10():
 											print("[!] Time elapsed: %d seconds" % (time_elapsed))
 											print("[!] Session complete")
 											exit()
-
+	exit()
 # INFORMATION #
 def information():
 	logo()
