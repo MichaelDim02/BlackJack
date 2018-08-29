@@ -12,6 +12,9 @@ import hashlib
 import time
 import argparse
 
+# GLOBAL VARIABLES #
+skip_termination = False
+
 #     VERSION     #
 version = "0.4"
 
@@ -127,8 +130,9 @@ def digit1():
 			print("[!] Time elapsed: %d seconds" % (time_elapsed))
 			print("[!] Session complete")
 			exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit2():
 	tries = 0
 	start = time.time()
@@ -152,8 +156,9 @@ def digit2():
 				print("[!] Time elapsed: %d seconds" % (time_elapsed))
 				print("[!] Session complete")
 				exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit3():
 	tries = 0
 	start = time.time()
@@ -178,8 +183,9 @@ def digit3():
 					print("[!] Time elapsed: %d seconds" % (time_elapsed))
 					print("[!] Session complete")
 					exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit4():
 	tries = 0
 	start = time.time()
@@ -205,8 +211,9 @@ def digit4():
 						print("[!] Time elapsed: %d seconds" % (time_elapsed))
 						print("[!] Session complete")
 						exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit5():
 	tries = 0
 	start = time.time()
@@ -233,8 +240,9 @@ def digit5():
 							print("[!] Time elapsed: %d seconds" % (time_elapsed))
 							print("[!] Session complete")
 							exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit6():
 	tries = 0
 	start = time.time()
@@ -262,8 +270,9 @@ def digit6():
 								print("[!] Time elapsed: %d seconds" % (time_elapsed))
 								print("[!] Session complete")
 								exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit7():
 	tries = 0
 	start = time.time()
@@ -292,8 +301,9 @@ def digit7():
 									print("[!] Time elapsed: %d seconds" % (time_elapsed))
 									print("[!] Session complete")
 									exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit8():
 	tries = 0
 	start = time.time()
@@ -323,8 +333,9 @@ def digit8():
 										print("[!] Time elapsed: %d seconds" % (time_elapsed))
 										print("[!] Session complete")
 										exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit9():
 	tries = 0
 	start = time.time()
@@ -355,8 +366,9 @@ def digit9():
 											print("[!] Time elapsed: %d seconds" % (time_elapsed))
 											print("[!] Session complete")
 											exit()
-	print("[!] Session complete")
-	exit()
+	if skip_termination == False:
+		print("[!] Session complete")
+		exit()
 def digit10():
 	tries = 0
 	start = time.time()
@@ -387,7 +399,8 @@ def digit10():
 											time_elapsed = end - start;
 											print("[!] Time elapsed: %d seconds" % (time_elapsed))
 											print("[!] Session complete")
-											exit()
+											exit()	
+	print("[!] Session complete")
 	exit()
 # INFORMATION #
 def information():
@@ -447,7 +460,10 @@ elif md5_opt or sha1_opt or sha256_opt or sha512_opt:
 			print("Hash: SHA256")
 		elif sha512_opt:
 			print("Hash: SHA512")
-		print("Digits: ", dig)
+ 		if dig != "0":
+			print("Digits:", dig)
+		else:
+			print("Digits:", dig, "(all)")
 		if lst == "1":
 			lst_name = "1 - Numbers"
 		elif lst == "2":
@@ -462,7 +478,7 @@ elif md5_opt or sha1_opt or sha256_opt or sha512_opt:
 			lst_name = "6 - Upper case letters, numbers"
 		elif lst == "7":
 			lst_name = "7 - Upper case letters, lower case letters, numbers"
-		print("List: ", lst_name)
+		print("List:", lst_name)
 		print("Cracking...")
 		if lst == "1":
 			plist = ['0','1','2','3','4','5','6','7','8','9']
@@ -482,6 +498,7 @@ elif md5_opt or sha1_opt or sha256_opt or sha512_opt:
 			print("[+] List not found")
 			exit()
 		if dig == "0":
+			skip_termination = True
 			digit1()
 			digit2()
 			digit3()
