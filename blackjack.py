@@ -1,6 +1,6 @@
 # BlackJack v0.4
 # Password cracking software
-# Michael C. Dim. - Thessaloniki, Central Macedonia, Greece
+# MD - Greece
 # Password cracking & penetration testing software
 # You may not use this for illegal and/or malicious purposes
 # License:
@@ -35,7 +35,7 @@ def options():
       ,''.-''| .---/ _`-._           Black Jack v%s
     ,' \ \  ;| | ,/ / `-._`-.
   ,' ,',\ \( | |// /,-._  / /     Password Cracker
-  ;.`. `,\ \`| |/ / |   )/ /           By Michael C Dim.
+  ;.`. `,\ \`| |/ / |   )/ /           By MichaelDim02
  / /`_`.\_\ \| /_.-.'-''/ /
 / /_|_:.`. \ |;'`..')  / /          BlackJack 21
 `-._`-._`.`.;`.\  ,'  / /   github.com/MichaelDim02/BlackJack21
